@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadoras</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -16,39 +15,136 @@
 
 <body>
     <h1>Calculadoras Matemáticas</h1>
+
     <div id="carouselExampleControls" class="carousel slide w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fat')">Porcentaje de grasa corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e hipotecas</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa
+                        corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fac')">Cantidad de
+                        combinaciones</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e
+                        hipotecas</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('basic')">Básica</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de hidratación</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías diarias</button>
+                    <button type="button" class="btn btn-secondary mx-3"
+                        onclick="showCalculator('basic')">Básica</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de
+                        hidratación</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías
+                        diarias</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('speed-calculator')">Speed/Distance/Time</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('age-calculator')">Age</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('date-calculator')">Date</button>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>    
+    </div>
+
+
+    <section class="calculator-section" id="speed-calculator">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h2 class="text-center mb-4">Calculadora Velocidad/Distancia/Tiempo</h2>
+                    <form id="calcDistance">
+                        <div class="form-group">
+                            <label for="distance">Distancia (en metros):</label>
+                            <input type="number" class="form-control" id="distance" placeholder="m">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="time">Tiempo (en segundos):</label>
+                            <input type="number" class="form-control" id="time" placeholder="s">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="speed">Velocidad (en m/s):</label>
+                            <input type="number" class="form-control" id="speed" placeholder="m/s">
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="calculateValues()">Calcular</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>  
+    
+    <section class="calculator-section" id="age-calculator">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h2 class="text-center mb-4">Age Calculator</h2>
+                    <form id="calcAge">
+                        <div class="form-group">
+                            <label for="birthdate">Date of Birth:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="birthdate" required>
+                            </div>
+                        </div>
+        
+                        <button type="button" class="btn btn-primary mt-4" onclick="calculateAge()">Calculate Age</button>
+                        
+                        <div id="result" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="calculator-section" id="date-calculator">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h2 class="text-center mb-4">Date Calculator</h2>
+                    <form id="calcDate">
+                        <div class="form-group">
+                            <label for="startDate">Select a Date:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="startDate" required>
+                            </div>
+                        </div>
+        
+                        <div class="form-group mt-3">
+                            <label for="days">Number of Days:</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="days" placeholder="Enter number of days" required>
+                            </div>
+                        </div>
+        
+                        <div class="form-group mt-3">
+                            <label for="operation">Operation:</label>
+                            <select class="form-control" id="operation">
+                                <option value="add">Add Days</option>
+                                <option value="subtract">Subtract Days</option>
+                            </select>
+                        </div>
+    
+                        <button type="button" class="btn btn-primary mt-4" onclick="calculateDate()">Calculate Date</button>
+                    
+                        <div id="dateResult" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="container mt-2" id="imc">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calcular Índice de masa corporal</h2>
@@ -79,6 +175,7 @@
                 </form>
             </div>
             <div class="col-12 col-lg-4 ">
+                <h3 class="mb-3 mt-2">Tu IMC es: <span id="imcResult">0</span></h3>
                 <table class="table table-sm table-bordered">
                     <thead>
                         <tr>
@@ -107,25 +204,18 @@
                 </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p id="resultado" class="mt-3"></p>
-            </div>
-        </div>
     </section>
 
     <section class="container mt-5" id="cml">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calculo de Préstamos e Hipotecas</h2>
-    
         <form id="loanForm">
             <div class="row mb-3">
-                
+
                 <div class="col-12 mt-3">
                     <label for="loanAmount" class="form-label">Monto</label>
                     <input type="number" id="loanAmount" class="form-control" placeholder="Monto del préstamo" required>
                 </div>
             </div>
-    
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="interestRate" class="form-label">Tasa (%)</label>
@@ -133,55 +223,70 @@
                         required>
                 </div>
             </div>
-    
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="loanTerm" class="form-label">Plazo (meses)</label>
                     <input type="number" id="loanTerm" class="form-control" placeholder="Plazo en meses" required>
                 </div>
             </div>
-    
             <div class="row mb-3">
                 <div class="col-12">
                     <button type="reset" class="btn btn-secondary ms-2">Limpiar campos</button>
-                    <button type="submit" class="btn btn-primary">Calcular cuota mensual</button>  
+                    <button type="submit" class="btn btn-primary">Calcular</button>
                 </div>
             </div>
+            <h3>Cuota mensual: <span id="loanResult">0</span></h3>
         </form>
-    
-        <div class="row">
-            <div class="col-12">
-                <p id="result" class="mt-3"></p>
-            </div>
-        </div>
     </section>
-    
-<section id="basic" class="container mt-5">
-    <h2 class="text-center">Calculadora Básica</h2>
-    <form id="basicForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
-        <div class="mb-3 w-100">
-            <input type="number" id="num1" class="form-control" placeholder="Número 1" required>
-        </div>
-        <div class="mb-4 w-100">
-            <input type="number" id="num2" class="form-control" placeholder="Número 2" required>
-        </div>
-        <div class="d-flex w-100 justify-content-between mb-4">
-            <button type="button" class="btn btn-primary col-5" id="sumBtn">Sumar</button>
-            <button type="button" class="btn btn-primary col-5" id="subtractBtn">Restar</button>
-        </div>
-        <div class="d-flex w-100 justify-content-between mb-3">
-            <button type="button" class="btn btn-primary col-5" id="multiplyBtn">Multiplicar</button>
-            <button type="button" class="btn btn-primary col-5" id="divideBtn">Dividir</button>
-        </div>
-        <p class="mt-3">Resultado: <span id="basicResult">0</span></p>
-    </form>
-</section>
 
-    
-    
+    <section class="container mt-5" id="fac">
+        <h2 class="fs-4 fs-md-3 fs-lg-2">Calculadora de Combinaciones</h2>
+
+        <form id="combinationForm">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="n" class="form-label">Número total de elementos (n)</label>
+                    <input type="number" id="n" class="form-control" placeholder="Valor de n" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="r" class="form-label">Número de elementos seleccionados (r)</label>
+                    <input type="number" id="r" class="form-control" placeholder="Valor de r" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </div>
+            </div>
+            <h3>Combinaciones: <span id="combinationResult">0</span></h3>
+            <h3>Combinaciones con repeticiones: <span id="combinationResultWithRepetition">0</span></h3>
+        </form>
+
+    </section>
+
+    <section id="basic">
+        <h2>Calculadora Básica</h2>
+        <form id="basicForm">
+            <input type="number" id="num1" placeholder="Número 1" required>
+            <select id="operation">
+                <option value="sum">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">×</option>
+                <option value="divide">÷</option>
+            </select>
+            <input type="number" id="num2" placeholder="Número 2" required>
+            <button type="submit">Calcular</button>
+            <h3>Resultado: <span id="result">0</span></h3>
+        </form>
+    </section>
+
     <section id="hydration" class="container mt-5">
         <h2 class="text-center">Calculadora de Hidratación</h2>
-        <form id="hydrationForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
+        <form id="hydrationForm"
+            class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
             <div class="mb-3 w-100">
                 <input type="number" id="weight" class="form-control" placeholder="Peso (kg)" required>
             </div>
@@ -195,7 +300,7 @@
         </form>
         <p class="mt-3 text-center">Nota: Si hace calor se recomienda tomar 0.5L más de agua</p>
     </section>
-    
+
     <section id="calories" class="container mt-5">
         <h2 class="text-center">Calculadora de Calorías</h2>
         <form id="caloriesForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
@@ -226,10 +331,7 @@
             <button type="submit" class="btn btn-primary w-100">Calcular</button>
             <p class="mt-3">Calorías diarias recomendadas: <span id="caloriesResult">0</span> kcal</p>
         </form>
-    </section>    
-
-
-
+    </section>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
