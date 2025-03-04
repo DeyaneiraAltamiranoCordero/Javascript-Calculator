@@ -4,25 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumador de Números</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        form {
-            display: inline-block;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        input {
-            margin: 5px;
-            padding: 8px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Calculadora de Suma</h2>
@@ -34,13 +16,6 @@
     </form>
     <h3>Resultado: <span id="resultado">0</span></h3>
 
-    <script>
-        document.getElementById('sumForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            let num1 = parseFloat(document.getElementById('num1').value) || 0;
-            let num2 = parseFloat(document.getElementById('num2').value) || 0;
-            document.getElementById('resultado').textContent = num1 + num2;
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
