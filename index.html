@@ -15,7 +15,43 @@
 
 <body>
     <h1>Calculadoras Matemáticas</h1>
-    <section class="calculator-section" id="calculator">
+
+    <div id="carouselExampleControls" class="carousel slide w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fat')">Porcentaje de grasa corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e hipotecas</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('basic')">Básica</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de hidratación</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías diarias</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('speed-calculator')">Speed/Distance/Time</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('age-calculator')">Age</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('date-calculator')">Date</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>    
+
+
+    <section class="calculator-section" id="speed-calculator">
         <div class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-8 col-lg-6">
@@ -43,7 +79,7 @@
         </div>
     </section>  
     
-    <section class="calculator-section" id="calculator">
+    <section class="calculator-section" id="age-calculator">
         <div class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-8 col-lg-6">
@@ -101,41 +137,6 @@
             </div>
         </div>
     </section>
-    
-    
-    <div id="carouselExampleControls" class="carousel slide w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fat')">Porcentaje de grasa corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e hipotecas</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('basic')">Básica</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de hidratación</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías diarias</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>    
 
     <section class="container mt-2" id="imc">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calcular Índice de masa corporal</h2>

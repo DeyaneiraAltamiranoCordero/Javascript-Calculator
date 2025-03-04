@@ -132,7 +132,7 @@ function calculateValues() {
             }
         }
 
-        function calculateAge() {
+function calculateAge() {
             const birthdateInput = document.getElementById('birthdate').value;
             if (!birthdateInput) {
                 alert('Please enter a valid date of birth.');
@@ -160,7 +160,7 @@ function calculateValues() {
             document.getElementById('result').textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
         }
 
-        function calculateDate() {
+function calculateDate() {
             const startDateInput = document.getElementById('startDate').value;
             const daysInput = parseInt(document.getElementById('days').value);
             const operation = document.getElementById('operation').value;
