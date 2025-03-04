@@ -81,7 +81,7 @@ document.getElementById("imcForm").addEventListener("input", () => {
      const sistema = document.getElementById("sistema").value;
 
     if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
-        document.getElementById("resultado").textContent = "";
+        document.getElementById("imcResult").textContent = "";
         return;
     }
 
@@ -89,7 +89,7 @@ document.getElementById("imcForm").addEventListener("input", () => {
         ? peso / Math.pow(altura / 100, 2) 
         : (peso / Math.pow(altura, 2)) * 703;
 
-    document.getElementById("resultado").textContent = `Tu IMC es: ${imc.toFixed(2)}`;
+    document.getElementById("imcResult").textContent = `${imc.toFixed(2)}`;
 });
 
 document.getElementById('loanForm').addEventListener('submit', function(event) {
@@ -99,7 +99,7 @@ document.getElementById('loanForm').addEventListener('submit', function(event) {
     let loanTerm = parseInt(document.getElementById('loanTerm').value);
 
     if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
-        document.getElementById('result').textContent = 'Por favor, ingresa valores válidos.';
+        document.getElementById('loanResult').textContent = 'Por favor, ingresa valores válidos.';
         return;
     }
 
@@ -108,11 +108,11 @@ document.getElementById('loanForm').addEventListener('submit', function(event) {
     let monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
 
     if (isNaN(monthlyPayment) || monthlyPayment <= 0) {
-        document.getElementById('result').textContent = 'Ocurrió un error en el cálculo. Verifica los datos.';
+        document.getElementById('loanResult').textContent = 'Ocurrió un error en el cálculo. Verifica los datos.';
         return;
     }
 
-    document.getElementById('result').textContent = `Tu cuota mensual será: ₡ ${monthlyPayment.toLocaleString('es-CR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    document.getElementById('loanResult').textContent = `₡ ${monthlyPayment.toLocaleString('es-CR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 });
 
@@ -185,3 +185,29 @@ function calculateDate() {
         }
         
         
+document.getElementById('combinationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let n = parseInt(document.getElementById('n').value);
+    let r = parseInt(document.getElementById('r').value);
+
+    if (isNaN(n) || isNaN(r) || n < r || n < 0 || r < 0) {
+        document.getElementById('combinationResult').textContent = 'Por favor, ingresa valores válidos para n y r.';
+        document.getElementById('combinationResultWithRepetition').textContent = 'Por favor, ingresa valores válidos para n y r.';
+        return;
+    }
+    function factorial(num) {
+        if (num === 0 || num === 1) return 1;
+        let result = 1;
+        for (let i = 2; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    let combinationWithoutRepetition = factorial(n) / (factorial(r) * factorial(n - r));
+    let combinationWithRepetition = factorial(n + r - 1) / (factorial(r) * factorial(n - 1));
+    document.getElementById('combinationResult').textContent = combinationWithoutRepetition;
+    document.getElementById('combinationResultWithRepetition').textContent = combinationWithRepetition;
+});
+
