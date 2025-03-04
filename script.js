@@ -92,3 +92,26 @@ document.getElementById("imcForm").addEventListener("input", () => {
     document.getElementById("resultado").textContent = `Tu IMC es: ${imc.toFixed(2)}`;
 });
 
+document.getElementById('loanForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    let loanAmount = parseFloat(document.getElementById('loanAmount').value);
+    let interestRate = parseFloat(document.getElementById('interestRate').value);
+    let loanTerm = parseInt(document.getElementById('loanTerm').value);
+
+    if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm)) {
+        document.getElementById('result').textContent = 'Por favor, ingresa valores válidos.';
+        return;
+    }
+
+    let monthlyRate = (interestRate / 100) / 12;
+    let totalPayments = loanTerm;
+    let monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+
+    if (isNaN(monthlyPayment) || monthlyPayment <= 0) {
+        document.getElementById('result').textContent = 'Ocurrió un error en el cálculo. Verifica los datos.';
+        return;
+    }
+
+    document.getElementById('result').textContent = `Tu cuota mensual será: ₡ ${monthlyPayment.toLocaleString('es-CR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+});
