@@ -123,7 +123,6 @@
 
     <section class="container mt-5" id="cml">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calculo de Préstamos e Hipotecas</h2>
-
         <form id="loanForm">
             <div class="row mb-3">
 
@@ -132,7 +131,6 @@
                     <input type="number" id="loanAmount" class="form-control" placeholder="Monto del préstamo" required>
                 </div>
             </div>
-
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="interestRate" class="form-label">Tasa (%)</label>
@@ -140,18 +138,16 @@
                         required>
                 </div>
             </div>
-
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="loanTerm" class="form-label">Plazo (meses)</label>
                     <input type="number" id="loanTerm" class="form-control" placeholder="Plazo en meses" required>
                 </div>
             </div>
-
             <div class="row mb-3">
                 <div class="col-12">
                     <button type="reset" class="btn btn-secondary ms-2">Limpiar campos</button>
-                    <button type="submit" class="btn btn-primary">Calcular cuota mensual</button>
+                    <button type="submit" class="btn btn-primary">Calcular</button>
                 </div>
             </div>
             <h3>Cuota mensual: <span id="loanResult">0</span></h3>
@@ -177,7 +173,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Calcular Combinaciones</button>
+                    <button type="submit" class="btn btn-primary">Calcular</button>
                 </div>
             </div>
             <h3>Combinaciones: <span id="combinationResult">0</span></h3>
@@ -201,10 +197,11 @@
             <h3>Resultado: <span id="result">0</span></h3>
         </form>
     </section>
-    
+
     <section id="hydration" class="container mt-5">
         <h2 class="text-center">Calculadora de Hidratación</h2>
-        <form id="hydrationForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
+        <form id="hydrationForm"
+            class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
             <div class="mb-3 w-100">
                 <input type="number" id="weight" class="form-control" placeholder="Peso (kg)" required>
             </div>
@@ -218,7 +215,7 @@
         </form>
         <p class="mt-3 text-center">Nota: Si hace calor se recomienda tomar 0.5L más de agua</p>
     </section>
-    
+
     <section id="calories" class="container mt-5">
         <h2 class="text-center">Calculadora de Calorías</h2>
         <form id="caloriesForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
@@ -249,7 +246,7 @@
             <button type="submit" class="btn btn-primary w-100">Calcular</button>
             <p class="mt-3">Calorías diarias recomendadas: <span id="caloriesResult">0</span> kcal</p>
         </form>
-    </section>    
+    </section>
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
