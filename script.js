@@ -3,25 +3,23 @@ document.getElementById('calcForm').addEventListener('submit', function(event) {
 
     let num1 = parseFloat(document.getElementById('num1').value) || 0;
     let num2 = parseFloat(document.getElementById('num2').value) || 0;
-    let operacion = document.getElementById('operacion').value;
-    let resultado;
+    document.getElementById('resultado').textContent = num1 + num2;
+});
 
-    switch (operacion) {
-        case 'sumar':
-            resultado = num1 + num2;
-            break;
-        case 'restar':
-            resultado = num1 - num2;
-            break;
-        case 'multiplicar':
-            resultado = num1 * num2;
-            break;
-        case 'dividir':
-            resultado = num2 !== 0 ? num1 / num2 : 'Error (División por 0)';
-            break;
-        default:
-            resultado = 'Operación no válida';
+document.getElementById("imcForm").addEventListener("input", () => {
+    const peso = parseFloat(document.getElementById("peso").value);
+    const altura = parseFloat(document.getElementById("altura").value);
+     const sistema = document.getElementById("sistema").value;
+
+    if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+        document.getElementById("resultado").textContent = "";
+        return;
     }
 
-    document.getElementById('resultado').textContent = resultado;
+    const imc = sistema === "metric" 
+        ? peso / Math.pow(altura / 100, 2) 
+        : (peso / Math.pow(altura, 2)) * 703;
+
+    document.getElementById("resultado").textContent = `Tu IMC es: ${imc.toFixed(2)}`;
 });
+
