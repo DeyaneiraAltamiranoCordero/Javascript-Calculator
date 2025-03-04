@@ -10,40 +10,93 @@
 </head>
 <body>
     <h1>Calculadoras Matemáticas</h1>
-
-
     <section class="calculator-section" id="calculator">
         <div class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-12 col-md-8 col-lg-6">
-                    <h2 class="text-center mb-4">Speed/Distance/Time Calculator</h2>
+                    <h2 class="text-center mb-4">Calculadora Velocidad/Distancia/Tiempo</h2>
                     <form id="calcDistance">
-                        
                         <div class="form-group">
-                            <label for="distance">Distance (in meters):</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="distance" placeholder="m" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group mt-3">
-                            <label for="time">Time (in seconds):</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="time" placeholder="s" required>
-                            </div>
+                            <label for="distance">Distancia (en metros):</label>
+                            <input type="number" class="form-control" id="distance" placeholder="m">
                         </div>
 
                         <div class="form-group mt-3">
-                            <label for="speed">Speed (in m/s):</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="speed" placeholder="m/s">
-                            </div>
+                            <label for="time">Tiempo (en segundos):</label>
+                            <input type="number" class="form-control" id="time" placeholder="s">
                         </div>
+
+                        <div class="form-group mt-3">
+                            <label for="speed">Velocidad (en m/s):</label>
+                            <input type="number" class="form-control" id="speed" placeholder="m/s">
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="calculateValues()">Calcular</button>
+
                     </form>
                 </div>
             </div>
         </div>
-    </section>    
+    </section>  
+    
+    <section class="calculator-section" id="calculator">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h2 class="text-center mb-4">Age Calculator</h2>
+                    <form id="calcAge">
+                        <div class="form-group">
+                            <label for="birthdate">Date of Birth:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="birthdate" required>
+                            </div>
+                        </div>
+        
+                        <button type="button" class="btn btn-primary mt-4" onclick="calculateAge()">Calculate Age</button>
+                        
+                        <div id="result" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="calculator-section" id="date-calculator">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h2 class="text-center mb-4">Date Calculator</h2>
+                    <form id="calcDate">
+                        <div class="form-group">
+                            <label for="startDate">Select a Date:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control" id="startDate" required>
+                            </div>
+                        </div>
+        
+                        <div class="form-group mt-3">
+                            <label for="days">Number of Days:</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="days" placeholder="Enter number of days" required>
+                            </div>
+                        </div>
+        
+                        <div class="form-group mt-3">
+                            <label for="operation">Operation:</label>
+                            <select class="form-control" id="operation">
+                                <option value="add">Add Days</option>
+                                <option value="subtract">Subtract Days</option>
+                            </select>
+                        </div>
+    
+                        <button type="button" class="btn btn-primary mt-4" onclick="calculateDate()">Calculate Date</button>
+                    
+                        <div id="dateResult" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     
     <script src="script.js"></script>
 </body>
