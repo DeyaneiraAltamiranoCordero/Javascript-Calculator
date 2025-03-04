@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 50px;
+    background-color: #ececec;
 }
 
 form {
@@ -17,3 +18,21 @@ input {
     padding: 8px;
     font-size: 16px;
 }
+
+
+.btn-group .btn {
+    width: 200px;
+    border: 2px solid #82c8b7;
+    color: #354749;
+    background-color: #a8d8d8;
+    box-shadow: 0 0 8px #6fa4b8;
+    transition: 0.6s ease-in-out;
+}
+
+.btn-group .btn:hover,
+.btn-group .btn:focus {
+    background-color: transparent;
+    color: #4f6b6e;
+    box-shadow: 0 0 6px #6fa4b8, 0 0 24px #67ab7f;
+}
+
