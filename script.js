@@ -14,34 +14,42 @@ function showCalculator(calculatorId) {
     }
 }
 
+document.getElementById("sumBtn").addEventListener("click", () => calculate("sum"));
+document.getElementById("subtractBtn").addEventListener("click", () => calculate("subtract"));
+document.getElementById("multiplyBtn").addEventListener("click", () => calculate("multiply"));
+document.getElementById("divideBtn").addEventListener("click", () => calculate("divide"));
 
-document.getElementById('basicForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+function calculate(operation) {
+    const num1 = parseFloat(document.getElementById("num1").value);
+    const num2 = parseFloat(document.getElementById("num2").value);
 
-    let num1 = parseFloat(document.getElementById('num1').value) || 0;
-    let num2 = parseFloat(document.getElementById('num2').value) || 0;
-    let operation = document.getElementById('operation').value;
+    if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("basicResult").textContent = "Por favor ingresa valores válidos.";
+        return;
+    }
+
     let result;
 
     switch (operation) {
-        case 'sum':
+        case "sum":
             result = num1 + num2;
             break;
-        case 'subtract':
+        case "subtract":
             result = num1 - num2;
             break;
-        case 'multiply':
+        case "multiply":
             result = num1 * num2;
             break;
-        case 'divide':
-            result = num2 !== 0 ? num1 / num2 : 'Error (División por 0)';
+        case "divide":
+            result = num2 !== 0 ? num1 / num2 : "Error (División por 0)";
             break;
         default:
-            result = 'Operación no válida';
+            result = "Operación no válida";
     }
 
-    document.getElementById('result').textContent = result;
-});
+    document.getElementById("basicResult").textContent = result;
+}
+
 
 document.getElementById('hydrationForm').addEventListener('submit', function(event) {
     event.preventDefault();
