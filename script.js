@@ -1,3 +1,20 @@
+window.onload = function() {
+    showCalculator('basic');
+};
+
+function showCalculator(calculatorId) {
+    const calculators = document.querySelectorAll('section');
+    calculators.forEach(calculator => {
+        calculator.style.display = 'none';
+    });
+
+    const selectedCalculator = document.getElementById(calculatorId);
+    if (selectedCalculator) {
+        selectedCalculator.style.display = 'block';
+    }
+}
+
+
 document.getElementById('basicForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
