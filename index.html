@@ -16,42 +16,105 @@
 
 <body>
     <h1>Calculadoras Matemáticas</h1>
-  <div id="carouselExampleControls" class="carousel slide w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div class="btn-group d-flex justify-content-center" role="toolbar">
-                <button type="button" class="btn btn-secondary mx-3">Índice de masa corporal</button>
-                <button type="button" class="btn btn-secondary mx-3">Porcentaje de grasa corporal</button>
-                <button type="button" class="btn btn-secondary mx-3">Impuestos</button>
+    <div id="carouselExampleControls" class="carousel slide   w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3">Índice de masa corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3">Porcentaje de grasa corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3">Impuestos</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3">Básica</button>
+                    <button type="button" class="btn btn-secondary mx-3">Nivel de hidratación</button>
+                    <button type="button" class="btn btn-secondary mx-3">Calorias diarias</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3">Las de Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3">Las de Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3">Las de Yeni</button>
+                </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <div class="btn-group d-flex justify-content-center" role="toolbar">
-                <button type="button" class="btn btn-secondary mx-3">Básica</button>
-                <button type="button" class="btn btn-secondary mx-3">Nivel de hidratación</button>
-                <button type="button" class="btn btn-secondary mx-3">Calorias diarias</button>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="btn-group d-flex justify-content-center" role="toolbar">
-                <button type="button" class="btn btn-secondary mx-3">Las de Yeni</button>
-                <button type="button" class="btn btn-secondary mx-3">Las de Yeni</button>
-                <button type="button" class="btn btn-secondary mx-3">Las de Yeni</button>
-            </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
+    <section class="container mt-2">
+        <h2 class="fs-4 fs-md-3 fs-lg-2">Calcular Índice de masa corporal</h2>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-4">
+                <form id="imcForm">
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="sistema" class="col-sm-2 col-form-label">Sistema</label>
+                            <select id="sistema" class="form-select" required>
+                                <option value="metric">kg/cm</option>
+                                <option value="imperial">Pulgadas/Libras</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="altura" class="form-label">Estatura</label>
+                            <input type="number" id="altura" class="form-control" placeholder="Altura" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="peso" class="form-label">Peso</label>
+                            <input type="number" id="peso" class="form-control" placeholder="Peso" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 ">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Composición Corporal</th>
+                            <th scope="col">Índice de Masa Corporal (IMC)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-start">Peso inferior al normal</td>
+                            <td class="text-center">Menos de 18.5</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Normal</td>
+                            <td class="text-center">18.5 – 24.9</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Peso superior al normal</td>
+                            <td class="text-center">25.0 – 29.9</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Obesidad</td>
+                            <td class="text-center">Más de 30.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p id="resultado" class="mt-3"></p>
+            </div>
+        </div>
+    </section>
 
     <!-- Sección de Suma -->
     <section id="suma">
@@ -89,6 +152,7 @@
         <h3>Resultado: <span id="resultadoMult">0</span></h3>
     </section>
     <h2>Tipos de Calculadora</h2>
+
 
 
     <script src="script.js"></script>
