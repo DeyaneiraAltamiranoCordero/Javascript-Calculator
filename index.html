@@ -20,35 +20,46 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fat')">Porcentaje de grasa corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e hipotecas</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa
+                        corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fac')">Cantidad de
+                        combinaciones</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e
+                        hipotecas</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('basic')">Básica</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de hidratación</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías diarias</button>
+                    <button type="button" class="btn btn-secondary mx-3"
+                        onclick="showCalculator('basic')">Básica</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de
+                        hidratación</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías
+                        diarias</button>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de
+                        Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de
+                        Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de
+                        Yeni</button>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>    
+    </div>
 
     <section class="container mt-2" id="imc">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calcular Índice de masa corporal</h2>
@@ -79,6 +90,7 @@
                 </form>
             </div>
             <div class="col-12 col-lg-4 ">
+                <h3 class="mb-3 mt-2">Tu IMC es: <span id="imcResult">0</span></h3>
                 <table class="table table-sm table-bordered">
                     <thead>
                         <tr>
@@ -107,25 +119,20 @@
                 </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p id="resultado" class="mt-3"></p>
-            </div>
-        </div>
     </section>
 
     <section class="container mt-5" id="cml">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calculo de Préstamos e Hipotecas</h2>
-    
+
         <form id="loanForm">
             <div class="row mb-3">
-                
+
                 <div class="col-12 mt-3">
                     <label for="loanAmount" class="form-label">Monto</label>
                     <input type="number" id="loanAmount" class="form-control" placeholder="Monto del préstamo" required>
                 </div>
             </div>
-    
+
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="interestRate" class="form-label">Tasa (%)</label>
@@ -133,29 +140,52 @@
                         required>
                 </div>
             </div>
-    
+
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="loanTerm" class="form-label">Plazo (meses)</label>
                     <input type="number" id="loanTerm" class="form-control" placeholder="Plazo en meses" required>
                 </div>
             </div>
-    
+
             <div class="row mb-3">
                 <div class="col-12">
                     <button type="reset" class="btn btn-secondary ms-2">Limpiar campos</button>
-                    <button type="submit" class="btn btn-primary">Calcular cuota mensual</button>  
+                    <button type="submit" class="btn btn-primary">Calcular cuota mensual</button>
                 </div>
             </div>
+            <h3>Cuota mensual: <span id="loanResult">0</span></h3>
         </form>
-    
-        <div class="row">
-            <div class="col-12">
-                <p id="result" class="mt-3"></p>
-            </div>
-        </div>
     </section>
-    
+
+    <section class="container mt-5" id="fac">
+        <h2 class="fs-4 fs-md-3 fs-lg-2">Calculadora de Combinaciones</h2>
+
+        <form id="combinationForm">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="n" class="form-label">Número total de elementos (n)</label>
+                    <input type="number" id="n" class="form-control" placeholder="Valor de n" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="r" class="form-label">Número de elementos seleccionados (r)</label>
+                    <input type="number" id="r" class="form-control" placeholder="Valor de r" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Calcular Combinaciones</button>
+                </div>
+            </div>
+            <h3>Combinaciones: <span id="combinationResult">0</span></h3>
+            <h3>Combinaciones con repeticiones: <span id="combinationResultWithRepetition">0</span></h3>
+        </form>
+
+    </section>
+
     <section id="basic">
         <h2>Calculadora Básica</h2>
         <form id="basicForm">
@@ -204,8 +234,6 @@
             <h3>Calorías diarias recomendadas: <span id="caloriesResult">0</span> kcal</h3>
         </form>
     </section>
-
-
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
