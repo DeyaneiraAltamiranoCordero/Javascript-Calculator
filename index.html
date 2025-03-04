@@ -15,48 +15,41 @@
 
 <body>
     <h1>Calculadoras Matemáticas</h1>
-
-    <div id="carouselExampleControls" class="carousel slide w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa
-                        corporal</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fac')">Cantidad de
-                        combinaciones</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e
-                        hipotecas</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3"
-                        onclick="showCalculator('basic')">Básica</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de
-                        hidratación</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías
-                        diarias</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="btn-group d-flex justify-content-center" role="toolbar">
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('speed-calculator')">Speed/Distance/Time</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('age-calculator')">Age</button>
-                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('date-calculator')">Date</button>
-                </div>
+<div id="carouselExampleControls" class="carousel slide mx-auto col-12 mt-4 mb-4" data-bs-ride="carousel">
+    <div class="carousel-inner col-lg-6">
+        <div class="carousel-item active">
+            <div class="btn-group d-flex justify-content-center" role="toolbar">
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('imc')">Índice de masa corporal</button>
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('fac')">Combinaciones</button>
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('cml')">Prestamos e hipotecas</button>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="carousel-item">
+            <div class="btn-group d-flex justify-content-center" role="toolbar">
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('basic')">Básica</button>
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('hydration')">Nivel de hidratación</button>
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('calories')">Calorías diarias</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="btn-group d-flex justify-content-center" role="toolbar">
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('speed-calculator')">Speed-Distance-Time</button>
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('age-calculator')">Age</button>
+                <button type="button" class="btn btn-secondary mx-1" onclick="showCalculator('date-calculator')">Date</button>
+            </div>
+        </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+    
 
 
     <section class="calculator-section" id="speed-calculator">
@@ -149,7 +142,7 @@
     <section class="container mt-2" id="imc">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calcular Índice de masa corporal</h2>
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4 mb-3">
                 <form id="imcForm">
                     <div class="row mb-3">
                         <div class="col-12">
@@ -174,8 +167,9 @@
                     </div>
                 </form>
             </div>
-            <div class="col-12 col-lg-4 ">
-                <h3 class="mb-3 mt-2">Tu IMC es: <span id="imcResult">0</span></h3>
+
+            <div class=" tableInfo col-12 col-lg-4 ">
+                <p class="mb-3 mt-2">Tu IMC es: <span id="imcResult">0</span></p>
                 <table class="table table-sm table-bordered">
                     <thead>
                         <tr>
@@ -206,7 +200,7 @@
         </div>
     </section>
 
-    <section class="container mt-5" id="cml">
+    <section class="container mt-2" id="cml">
         <h2 class="fs-4 fs-md-3 fs-lg-2">Calculo de Préstamos e Hipotecas</h2>
         <form id="loanForm">
             <div class="row mb-3">
@@ -219,7 +213,7 @@
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="interestRate" class="form-label">Tasa (%)</label>
-                    <input type="number" id="interestRate" class="form-control" placeholder="Tasa de interés anual en %"
+                    <input type="number" id="interestRate" class="form-control" placeholder="Interés anual"
                         required>
                 </div>
             </div>
@@ -231,11 +225,10 @@
             </div>
             <div class="row mb-3">
                 <div class="col-12">
-                    <button type="reset" class="btn btn-secondary ms-2">Limpiar campos</button>
                     <button type="submit" class="btn btn-primary">Calcular</button>
                 </div>
             </div>
-            <h3>Cuota mensual: <span id="loanResult">0</span></h3>
+            <p>Cuota mensual: <span id="loanResult">0</span></p>
         </form>
     </section>
 
@@ -261,8 +254,8 @@
                     <button type="submit" class="btn btn-primary">Calcular</button>
                 </div>
             </div>
-            <h3>Combinaciones: <span id="combinationResult">0</span></h3>
-            <h3>Combinaciones con repeticiones: <span id="combinationResultWithRepetition">0</span></h3>
+            <p>Combinaciones: <span id="combinationResult">0</span></p>
+            <p>Combinaciones con repeticiones: <span id="combinationResultWithRepetition">0</span></p>
         </form>
 
     </section>
@@ -338,6 +331,7 @@
             <p class="mt-3">Calorías diarias recomendadas: <span id="caloriesResult">0</span> kcal</p>
         </form>
     </section>
+    
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
