@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadoras</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <h1>Calculadoras Matemáticas</h1>
     <section class="calculator-section" id="calculator">
@@ -98,6 +103,222 @@
     </section>
     
     
+    <div id="carouselExampleControls" class="carousel slide w-75 mx-auto mt-4 mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('imc')">Índice de masa corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('fat')">Porcentaje de grasa corporal</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('cml')">Prestamos e hipotecas</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('basic')">Básica</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('hydration')">Nivel de hidratación</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('calories')">Calorías diarias</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="btn-group d-flex justify-content-center" role="toolbar">
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
+                    <button type="button" class="btn btn-secondary mx-3" onclick="showCalculator('yeni')">Las de Yeni</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>    
+
+    <section class="container mt-2" id="imc">
+        <h2 class="fs-4 fs-md-3 fs-lg-2">Calcular Índice de masa corporal</h2>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 col-lg-4">
+                <form id="imcForm">
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="sistema" class="col-sm-2 col-form-label">Sistema</label>
+                            <select id="sistema" class="form-select" required>
+                                <option value="metric">kg/cm</option>
+                                <option value="imperial">Pulgadas/Libras</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="altura" class="form-label">Estatura</label>
+                            <input type="number" id="altura" class="form-control" placeholder="Altura" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="peso" class="form-label">Peso</label>
+                            <input type="number" id="peso" class="form-control" placeholder="Peso" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 ">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Composición Corporal</th>
+                            <th scope="col">Índice de Masa Corporal (IMC)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-start">Peso inferior al normal</td>
+                            <td class="text-center">Menos de 18.5</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Normal</td>
+                            <td class="text-center">18.5 - 24.9</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Peso superior al normal</td>
+                            <td class="text-center">25.0 - 29.9</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Obesidad</td>
+                            <td class="text-center">Más de 30.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p id="resultado" class="mt-3"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5" id="cml">
+        <h2 class="fs-4 fs-md-3 fs-lg-2">Calculo de Préstamos e Hipotecas</h2>
+    
+        <form id="loanForm">
+            <div class="row mb-3">
+                
+                <div class="col-12 mt-3">
+                    <label for="loanAmount" class="form-label">Monto</label>
+                    <input type="number" id="loanAmount" class="form-control" placeholder="Monto del préstamo" required>
+                </div>
+            </div>
+    
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="interestRate" class="form-label">Tasa (%)</label>
+                    <input type="number" id="interestRate" class="form-control" placeholder="Tasa de interés anual en %"
+                        required>
+                </div>
+            </div>
+    
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="loanTerm" class="form-label">Plazo (meses)</label>
+                    <input type="number" id="loanTerm" class="form-control" placeholder="Plazo en meses" required>
+                </div>
+            </div>
+    
+            <div class="row mb-3">
+                <div class="col-12">
+                    <button type="reset" class="btn btn-secondary ms-2">Limpiar campos</button>
+                    <button type="submit" class="btn btn-primary">Calcular cuota mensual</button>  
+                </div>
+            </div>
+        </form>
+    
+        <div class="row">
+            <div class="col-12">
+                <p id="result" class="mt-3"></p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="basic" class="container mt-5">
+        <h2 class="text-center">Calculadora Básica</h2>
+        <form id="basicForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
+            <div class="mb-3 w-100">
+                <input type="number" id="num1" class="form-control" placeholder="Número 1" required>
+            </div>
+            <div class="mb-3 w-100">
+                <input type="number" id="num2" class="form-control" placeholder="Número 2" required>
+            </div>
+            <div class="mb-3 w-100">
+                <select id="operation" class="form-select" required>
+                    <option value="sum">Sumar</option>
+                    <option value="subtract">Restar</option>
+                    <option value="multiply">Multiplicar</option>
+                    <option value="divide">Dividir</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Calcular</button>
+            <div class="col-sm-12">
+                <p class="mt-3">Resultado: <span id="result">0</span></p>
+            </div>
+        </form>
+    </section>
+    
+    <section id="hydration" class="container mt-5">
+        <h2 class="text-center">Calculadora de Hidratación</h2>
+        <form id="hydrationForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
+            <div class="mb-3 w-100">
+                <input type="number" id="weight" class="form-control" placeholder="Peso (kg)" required>
+            </div>
+            <div class="mb-3 w-100">
+                <input type="number" id="exercise" class="form-control" placeholder="Minutos de ejercicio" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Calcular</button>
+            <div class="col-sm-12">
+                <p id="resultado" class="mt-3">Agua recomendada: <span id="waterResult">0</span> litros/día</p>
+            </div>
+        </form>
+        <p class="mt-3 text-center">Nota: Si hace calor se recomienda tomar 0.5L más de agua</p>
+    </section>
+    
+    <section id="calories" class="container mt-5">
+        <h2 class="text-center">Calculadora de Calorías</h2>
+        <form id="caloriesForm" class="d-flex flex-column align-items-center mx-auto col-12 col-sm-8 col-md-6 col-lg-3">
+            <div class="mb-3 w-100">
+                <input type="number" id="weight" class="form-control" placeholder="Peso (kg)" required>
+            </div>
+            <div class="mb-3 w-100">
+                <input type="number" id="height" class="form-control" placeholder="Altura (cm)" required>
+            </div>
+            <div class="mb-3 w-100">
+                <input type="number" id="age" class="form-control" placeholder="Edad (años)" required>
+            </div>
+            <div class="mb-3 w-100">
+                <select id="gender" class="form-select" required>
+                    <option value="male">Hombre</option>
+                    <option value="female">Mujer</option>
+                </select>
+            </div>
+            <div class="mb-3 w-100">
+                <select id="activityLevel" class="form-select" required>
+                    <option value="1.2">Sedentario</option>
+                    <option value="1.375">Ligera actividad</option>
+                    <option value="1.55">Actividad moderada</option>
+                    <option value="1.725">Actividad intensa</option>
+                    <option value="1.9">Atleta o muy intensa</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Calcular</button>
+            <p class="mt-3">Calorías diarias recomendadas: <span id="caloriesResult">0</span> kcal</p>
+        </form>
+    </section>    
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
