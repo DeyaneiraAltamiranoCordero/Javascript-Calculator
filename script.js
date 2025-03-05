@@ -14,12 +14,12 @@ function showCalculator(calculatorId) {
     }
 }
 
-document.getElementById("sumBtn").addEventListener("click", () => calculate("sum"));
-document.getElementById("subtractBtn").addEventListener("click", () => calculate("subtract"));
-document.getElementById("multiplyBtn").addEventListener("click", () => calculate("multiply"));
-document.getElementById("divideBtn").addEventListener("click", () => calculate("divide"));
+document.getElementById("sumBtn").addEventListener("click", () => handleOperation("sum"));
+document.getElementById("subtractBtn").addEventListener("click", () => handleOperation("subtract"));
+document.getElementById("multiplyBtn").addEventListener("click", () => handleOperation("multiply"));
+document.getElementById("divideBtn").addEventListener("click", () => handleOperation("divide"));
 
-function calculate(operation) {
+function handleOperation(operation) {
     const num1 = parseFloat(document.getElementById("num1").value);
     const num2 = parseFloat(document.getElementById("num2").value);
 
@@ -27,25 +27,7 @@ function calculate(operation) {
         document.getElementById("basicResult").textContent = "Por favor ingresa valores válidos.";
         return;
     }
-
-    let result;
-
-    switch (operation) {
-        case "sum":
-            result = num1 + num2;
-            break;
-        case "subtract":
-            result = num1 - num2;
-            break;
-        case "multiply":
-            result = num1 * num2;
-            break;
-        case "divide":
-            result = num2 !== 0 ? num1 / num2 : "Error (División por 0)";
-            break;
-        default:
-            result = "Operación no válida";
-    }
+    const result = calculate(operation, num1, num2);
 
     document.getElementById("basicResult").textContent = result;
 }
@@ -56,8 +38,8 @@ document.getElementById('hydrationForm').addEventListener('submit', function(eve
 
     let weight = parseFloat(document.getElementById('weight').value) || 0;
     let exercise = parseFloat(document.getElementById('exercise').value) || 0;
-    
-    let waterIntake = (weight * 0.035) + (exercise / 30 * 0.5);
+
+    let waterIntake = calculateWaterIntake(weight, exercise);
     
     document.getElementById('waterResult').textContent = waterIntake.toFixed(2);
 });
@@ -65,20 +47,17 @@ document.getElementById('hydrationForm').addEventListener('submit', function(eve
 document.getElementById('caloriesForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
+
     let weight = parseFloat(document.getElementById('weight').value) || 0;
     let height = parseFloat(document.getElementById('height').value) || 0;
     let age = parseFloat(document.getElementById('age').value) || 0;
     let gender = document.getElementById('gender').value;
     let activityLevel = parseFloat(document.getElementById('activityLevel').value);
 
-    let bmr;
-    if (gender === 'male') {
-        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-    } else {
-        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-    }
+    let bmr = calculateBMR(weight, height, age, gender);
+    
+    let dailyCalories = calculateDailyCalories(bmr, activityLevel);
 
-    let dailyCalories = bmr * activityLevel;
     document.getElementById('caloriesResult').textContent = dailyCalories.toFixed(2);
 });
 
@@ -86,16 +65,19 @@ document.getElementById('caloriesForm').addEventListener('submit', function(even
 document.getElementById("imcForm").addEventListener("input", () => {
     const peso = parseFloat(document.getElementById("peso").value);
     const altura = parseFloat(document.getElementById("altura").value);
-     const sistema = document.getElementById("sistema").value;
+    const sistema = document.getElementById("sistema").value;
 
     if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
         document.getElementById("imcResult").textContent = "";
         return;
     }
 
-    const imc = sistema === "metric" 
-        ? peso / Math.pow(altura / 100, 2) 
-        : (peso / Math.pow(altura, 2)) * 703;
+    let imc;
+    if (sistema === "metric") {
+        imc = calculateIMCMetric(peso, altura);
+    } else {
+        imc = calculateIMCImperial(peso, altura);
+    }
 
     document.getElementById("imcResult").textContent = `${imc.toFixed(2)}`;
 });
@@ -111,87 +93,71 @@ document.getElementById('loanForm').addEventListener('submit', function(event) {
         return;
     }
 
-    let monthlyRate = (interestRate / 100) / 12;
-    let totalPayments = loanTerm;
-    let monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+    let monthlyPayment = calculateLoanPayment(loanAmount, interestRate, loanTerm);
 
     if (isNaN(monthlyPayment) || monthlyPayment <= 0) {
         document.getElementById('loanResult').textContent = 'Ocurrió un error en el cálculo. Verifica los datos.';
         return;
     }
-
-    document.getElementById('loanResult').textContent = `₡ ${monthlyPayment.toLocaleString('es-CR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
+    document.getElementById('loanResult').textContent = formatCurrency(monthlyPayment);
 });
 
-function calculateValues() {
-            const distance = parseFloat(document.getElementById('distance').value);
-            const time = parseFloat(document.getElementById('time').value);
-            const speed = parseFloat(document.getElementById('speed').value);
 
-            if (!isNaN(distance) && !isNaN(time) && isNaN(speed)) {
-                document.getElementById('speed').value = (distance / time).toFixed(2);
-            } else if (!isNaN(distance) && !isNaN(speed) && isNaN(time)) {
-                document.getElementById('time').value = (distance / speed).toFixed(2);
-            } else if (!isNaN(speed) && !isNaN(time) && isNaN(distance)) {
-                document.getElementById('distance').value = (speed * time).toFixed(2);
-            } else {
-                alert('Ingresa dos valores para calcular el tercero');
-            }
-        }
+function calculateValues() {
+    const distance = parseFloat(document.getElementById('distance').value);
+    const time = parseFloat(document.getElementById('time').value);
+    const speed = parseFloat(document.getElementById('speed').value);
+
+    if (!isNaN(distance) && !isNaN(time) && isNaN(speed)) {
+        document.getElementById('speed').value = calculateSpeed(distance, time);
+    } else if (!isNaN(distance) && !isNaN(speed) && isNaN(time)) {
+        document.getElementById('time').value = calculateTime(distance, speed);
+    } else if (!isNaN(speed) && !isNaN(time) && isNaN(distance)) {
+        document.getElementById('distance').value = calculateDistance(speed, time);
+    } else {
+        alert('Ingresa dos valores para calcular el tercero');
+    }
+}
 
 function calculateAge() {
-            const birthdateInput = document.getElementById('birthdate').value;
-            if (!birthdateInput) {
-                alert('Please enter a valid date of birth.');
-                return;
-            }
-        
-            const birthDate = new Date(birthdateInput);
-            const currentDate = new Date();
-        
-            let years = currentDate.getFullYear() - birthDate.getFullYear();
-            let months = currentDate.getMonth() - birthDate.getMonth();
-            let days = currentDate.getDate() - birthDate.getDate();
-    
-            if (months < 0 || (months === 0 && days < 0)) {
-                years--;
-                months += 12; 
-            }
-    
-            if (days < 0) {
-                const lastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-                days += lastMonth.getDate(); 
-                months--; 
-            }
-    
-            document.getElementById('result').textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
-        }
+    const birthdateInput = document.getElementById('birthdate').value;
+
+    if (!isValidDate(birthdateInput)) {
+        alert('Please enter a valid date of birth.');
+        return;
+    }
+
+    const birthDate = new Date(birthdateInput);
+    const currentDate = new Date();
+
+    const years = calculateYears(birthDate, currentDate);
+    const months = calculateMonths(birthDate, currentDate);
+    const days = calculateDays(birthDate, currentDate);
+
+    document.getElementById('result').textContent = `You are ${years} years, ${months} months, and ${days} days old.`;
+}
 
 function calculateDate() {
-            const startDateInput = document.getElementById('startDate').value;
-            const daysInput = parseInt(document.getElementById('days').value);
-            const operation = document.getElementById('operation').value;
-        
-            if (!startDateInput || isNaN(daysInput) || daysInput <= 0) {
-                alert('Please enter a valid start date and a positive number of days.');
-                return;
-            }
-        
-            const startDate = new Date(startDateInput);
-            let resultDate;
-        
-            if (operation === 'add') {
-                resultDate = new Date(startDate);
-                resultDate.setDate(startDate.getDate() + daysInput); 
-            } else if (operation === 'subtract') {
-                resultDate = new Date(startDate);
-                resultDate.setDate(startDate.getDate() - daysInput);
-            }
-    
-            document.getElementById('dateResult').textContent = `The resulting date is: ${resultDate.toISOString().split('T')[0]}`;
-        }
-        
+    const startDateInput = document.getElementById('startDate').value;
+    const daysInput = parseInt(document.getElementById('days').value);
+    const operation = document.getElementById('operation').value;
+
+    if (!isValidDateInput(startDateInput, daysInput)) {
+        alert('Please enter a valid start date and a positive number of days.');
+        return;
+    }
+
+    const startDate = new Date(startDateInput);
+    const resultDate = calculateNewDate(startDate, daysInput, operation);
+
+    updateDateResult(resultDate);
+}
+
+function updateDateResult(resultDate) {
+    document.getElementById('dateResult').textContent = 
+        `The resulting date is: ${resultDate.toISOString().split('T')[0]}`;
+}
+
         
 document.getElementById('combinationForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -204,18 +170,12 @@ document.getElementById('combinationForm').addEventListener('submit', function(e
         document.getElementById('combinationResultWithRepetition').textContent = 'Por favor, ingresa valores válidos para n y r.';
         return;
     }
-    function factorial(num) {
-        if (num === 0 || num === 1) return 1;
-        let result = 1;
-        for (let i = 2; i <= num; i++) {
-            result *= i;
-        }
-        return result;
-    }
 
-    let combinationWithoutRepetition = factorial(n) / (factorial(r) * factorial(n - r));
-    let combinationWithRepetition = factorial(n + r - 1) / (factorial(r) * factorial(n - 1));
-    document.getElementById('combinationResult').textContent = combinationWithoutRepetition;
-    document.getElementById('combinationResultWithRepetition').textContent = combinationWithRepetition;
+    let resultWithoutRepetition = combinationWithoutRepetition(n, r);
+    let resultWithRepetition = combinationWithRepetition(n, r);
+
+    document.getElementById('combinationResult').textContent = resultWithoutRepetition.toLocaleString('es-CR');
+    document.getElementById('combinationResultWithRepetition').textContent = resultWithRepetition.toLocaleString('es-CR');
 });
+
 
