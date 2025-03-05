@@ -5,7 +5,8 @@ body {
     background-color: #f8f5f1;
 }
 
-form, .tableInfo {
+form,
+.tableInfo {
     display: inline-block;
     padding: 20px;
     border: 1px solid #f0b27a;
@@ -26,14 +27,14 @@ input {
     color: #b34700;
     padding: 10px 20px;
     cursor: pointer;
-    outline: none; 
+    outline: none;
 }
 
 .btn:hover,
 .btn:focus {
     background-color: #f0b27a;
     color: #ffffff;
-    outline: none; 
+    outline: none;
 }
 
 .btn-group .btn {
@@ -43,7 +44,7 @@ input {
     background-color: #ffe8d6;
     box-shadow: 0 0 2px #f0b27a;
     transition: 0.3s ease-in-out;
-    outline: none; 
+    outline: none;
 }
 
 .btn-group .btn:hover,
@@ -52,6 +53,10 @@ input {
     color: #f0b27a;
     border: 2px solid #f0b27a;
     box-shadow: 0 0 2px #f0b27a, 0 0 24px #f0b27a;
-    outline: none; 
+    outline: none;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%) grayscale(100%);
+}
